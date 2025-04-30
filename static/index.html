@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shipping Agent - Global Delivery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    .shipping-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      min-height: 50vh;
+      position: relative;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      overflow: hidden;
+    }
+
+    .shipping-content {
+      flex: 1;
+      max-width: 600px;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .shipping-heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #003366;
+    }
+
+    .typing {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #0077cc;
+      min-height: 40px;
+    }
+
+    .shipping-description {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      margin-top: 30px;
+      padding: 12px 28px;
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #005fa3;
+    }
+
+    .logo-container {
+      position: relative;
+      width: 220px;
+      margin-right: 2em;
+      height: 220px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .logo-ring {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 50%;
+      animation: rotate 20s linear infinite;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo img {
+        border-radius: 50%;
+      width: 90%;
+    }
+
+    .logo:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }      /* 0° */
+.logo:nth-child(2) { top: 15%; left: 85%; transform: translate(-50%, -50%); }     /* 45° */
+.logo:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }    /* 90° */
+.logo:nth-child(4) { top: 85%; left: 85%; transform: translate(-50%, -50%); }     /* 135° */
+.logo:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }    /* 180° */
+.logo:nth-child(6) { top: 85%; left: 15%; transform: translate(-50%, -50%); }     /* 225° */
+.logo:nth-child(7) { top: 50%; left: 0%; transform: translate(-50%, -50%); }      /* 270° */
+.logo:nth-child(8) { top: 15%; left: 15%; transform: translate(-50%, -50%); }     /* 315° */
+
+
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive mobile layout */
+    @media (max-width: 768px) {
+      .shipping-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo-container {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 10px;
+      }
+
+      .shipping-heading {
+        font-size: 2rem;
+      }
+
+      .typing {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="shipping-section">
+
+ <!-- Rotating Logos in Circular Container -->
+ <div class="logo-container">
+    <div class="logo-ring">
+      <div class="logo"><img src="h" alt="Amazon" /></div>
+      <div class="logo"><img src="h" alt="eBay" /></div>
+      <div class="logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiwLl2MvQr52H78pmOcl2F4Iekr36DDyQFYQ&s" alt="Alibaba" /></div>
+      <div class="logo"><img src="h" alt="DHL" /></div>
+      <div class="logo"><img src="h" alt="DHL" /></div>
+      <div class="logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQa2et6ztmeGYgVshq-mbirm1WVnTXnPylmA&s" alt="UPS" /></div>
+      <div class="logo"><img src="h" alt="FedEx" /></div>
+      <div class="logo"><img src="h" alt="UPS" /></div>
+    </div>
+  </div>
+  <!-- Shipping Text -->
+  <div class="shipping-content">
+    <div class="shipping-heading">I'm a Shipping Agent</div>
+    <div class="typing" id="typing-text"></div>
+    <p class="shipping-description">
+      I deliver anything from anywhere — globally. Whether it's e-commerce, freight, or personal packages, I provide fast, secure, and professional logistics solutions.
+    </p>
+    <button class="cta-button">Let's Ship It</button>
+  </div>
+  </div>
+</section>
+
+<script>
+  const text = "Do you want anything from anywhere? I do global deliveries.";
+  let i = 0;
+  function typeText() {
+    if (i < text.length) {
+      document.getElementById("typing-text").textContent += text.charAt(i);
+      i++;
+      setTimeout(typeText, 40);
+    }
+  }
+  window.onload = typeText;
+</script>
+
+</body>
+</html>
